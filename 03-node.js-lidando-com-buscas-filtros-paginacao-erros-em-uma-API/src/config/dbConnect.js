@@ -6,4 +6,4 @@ let db = mongoose.connection;
 
 export default db;
 
-// // ?retryWrites=true&w=majority&appName=Cluster0
+// ?retryWrites=true&w=majority&appName=Cluster0
