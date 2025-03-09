@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import NaoEncontrado from "../erros/NaoEncontrado.js";
-import autores from "../models/Autor.js";
+import { autores } from "../models/index.js";
 
 class AutorController {
   static listarAutores = async (req, res) => {
