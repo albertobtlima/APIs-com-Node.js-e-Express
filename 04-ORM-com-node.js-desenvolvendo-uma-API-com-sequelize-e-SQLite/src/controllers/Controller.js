@@ -8,7 +8,7 @@ class Controller {
       const listaDeRegistro = await this.entidadeService.pegaTodosOsRegistros();
       return res.status(200).json(listaDeRegistro);
     } catch (erro) {
-      erro;
+      //erro;
     }
   }
 
@@ -21,7 +21,7 @@ class Controller {
       );
       return res.status(200).json(umRegistro);
     } catch (erro) {
-      erro;
+      //erro;
     }
   }
 
@@ -34,7 +34,27 @@ class Controller {
       );
       return res.status(200).json(novoRegistroCriado);
     } catch (erro) {
-      erro;
+      //erro;
+    }
+  }
+
+  async atualiza(req, res) {
+    const { id } = req.params;
+    const dadosAtualizados = req.body;
+
+    try {
+      const foiAtualizado = await this.entidadeService.atualizaRegistro(
+        dadosAtualizados,
+        Number(id)
+      );
+
+      if (!foiAtualizado) {
+        return res.status(400).json({ message: "Registro não foi atualizado" });
+      }
+
+      return res.status(200).json({ message: "Atualizado com sucesso" });
+    } catch (erro) {
+      //erro
     }
   }
 
