@@ -8,6 +8,18 @@ class Services {
   async pegaTodosOsRegistros() {
     return dataSource[this.model].findAll();
   }
+
+  async pagaUmRegistroPorId(id) {
+    return dataSource[this.model].findByPk(id);
+  }
+
+  async criaRegistro(dadosDoRegistro) {
+    return dataSource[this.model].create(dadosDoRegistro);
+  }
+
+  async excluiRegistro(id) {
+    return dataSource[this.model].destroy({ where: { id: id } });
+  }
 }
 
 module.exports = Services;
