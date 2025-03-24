@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Maticula.init(
+  Matricula.init(
     {
       status: DataTypes.STRING,
     },
