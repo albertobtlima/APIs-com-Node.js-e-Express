@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       Matricula.belongsTo(models.Pessoa, {
         foreignKey: "estudante_id",
       });
-
       Matricula.belongsTo(models.Curso, {
         foreignKey: "curso_id",
       });
@@ -18,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Maticula",
+      modelName: "Matricula",
       tableName: "matriculas",
     }
   );
