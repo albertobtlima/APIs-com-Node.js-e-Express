@@ -1,8 +1,8 @@
-const Services = require('./Services.js');
+const Services = require("./Services.js");
 
 class CursoServices extends Services {
   constructor() {
-    super('Curso');
+    super("Curso");
   }
 }
 

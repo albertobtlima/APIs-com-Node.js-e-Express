@@ -15,7 +15,9 @@ class Controller {
   async pegaUmPorId(req, res) {
     const { id } = req.params;
     try {
-      const umRegistro = await this.entidadeService.pegaUmRegistroPorId(Number(id));
+      const umRegistro = await this.entidadeService.pegaUmRegistroPorId(
+        Number(id)
+      );
       return res.status(200).json(umRegistro);
     } catch (erro) {
       // erro
@@ -25,7 +27,9 @@ class Controller {
   async criaNovo(req, res) {
     const dadosParaCriacao = req.body;
     try {
-      const novoRegistroCriado = await this.entidadeService.criaRegistro(dadosParaCriacao);
+      const novoRegistroCriado = await this.entidadeService.criaRegistro(
+        dadosParaCriacao
+      );
       return res.status(200).json(novoRegistroCriado);
     } catch (erro) {
       // erro
@@ -37,11 +41,16 @@ class Controller {
     const dadosAtualizados = req.body;
     try {
       //isUpdated
-      const foiAtualizado = await this.entidadeService.atualizaRegistro(dadosAtualizados, Number(id));
+      const foiAtualizado = await this.entidadeService.atualizaRegistro(
+        dadosAtualizados,
+        Number(id)
+      );
       if (!foiAtualizado) {
-        return res.status(400).json({ mensagem: 'registro não foi atualizado' });
+        return res
+          .status(400)
+          .json({ mensagem: "registro não foi atualizado" });
       }
-      return res.status(200).json({ mensagem: 'Atualizado com sucesso' });
+      return res.status(200).json({ mensagem: "Atualizado com sucesso" });
     } catch (erro) {
       // erro
     }
