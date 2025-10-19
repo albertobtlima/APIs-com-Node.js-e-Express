@@ -9,9 +9,7 @@
     "/books": {
       "post": {
         "summary": "Create a book",
-        "tags": [
-          "Books"
-        ],
+        "tags": ["Books"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -37,9 +35,7 @@
       },
       "get": {
         "summary": "Get all books",
-        "tags": [
-          "Books"
-        ],
+        "tags": ["Books"],
         "security": [
           {
             "bearerAuth": []
@@ -68,9 +64,7 @@
     "/books/{title}": {
       "get": {
         "summary": "Find a book by title",
-        "tags": [
-          "Books"
-        ],
+        "tags": ["Books"],
         "parameters": [
           {
             "name": "title",
@@ -104,9 +98,7 @@
     "/books/{id}": {
       "put": {
         "summary": "Update a book",
-        "tags": [
-          "Books"
-        ],
+        "tags": ["Books"],
         "parameters": [
           {
             "name": "id",
@@ -147,9 +139,7 @@
       },
       "delete": {
         "summary": "Delete a book",
-        "tags": [
-          "Books"
-        ],
+        "tags": ["Books"],
         "parameters": [
           {
             "name": "id",
@@ -169,6 +159,88 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Create a User",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário cadastrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login User",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Logado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
